@@ -1,6 +1,6 @@
 environment                            = "prod"
 app_name                               = "app"
-s3_source_bucket_creation_enabled      = false
+s3_source_bucket_creation_enabled      = true
 bucket_name                            = "app-dev-testing-s3-repl"
 source_region                          = "eu-west-1"
 destination_region                     = "ap-south-1"
