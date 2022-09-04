@@ -34,9 +34,12 @@ resource "aws_s3_bucket_logging" "s3_bucket_logging" {
   count         = local.bucket_creation_enabled
   bucket        = aws_s3_bucket.bucket[count.index].id
   target_bucket = var.log_bucket
-  target_prefix = "${data.aws_caller_identity.self[0].id}/${local.bucket_name}}"
+  target_prefix = "${data.aws_caller_identity.self[count.index].id}/${local.bucket_name}}"
 }
 
+// Default encryption will be kms.
+// Other encrypted objects are not allowed.
+// Bucket key is always enabled.
 resource "aws_s3_bucket_server_side_encryption_configuration" "s3_bucket_server_side_encryption" {
   count  = local.bucket_creation_enabled
   bucket = aws_s3_bucket.bucket[count.index].id

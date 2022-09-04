@@ -80,8 +80,8 @@ variable "s3_lifecycle_rules" {
   description = "The S3 lifecycle rules to apply to the S3 bucket"
 }
 
-variable "s3_bucket_replication_enabled" {
+variable "logging_enabled" {
   type        = bool
   default     = true
-  description = "Whether to enable S3 replication"
+  description = "Whether to enable logging"
 }

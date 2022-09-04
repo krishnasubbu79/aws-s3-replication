@@ -1,6 +1,7 @@
+// All the public block variables will default to true
 variable "block_public_acls" {
   type        = bool
-  default     = false
+  default     = true
   description = "Enable public access to s3 buckets"
 }
 
@@ -110,4 +111,50 @@ variable "destination_region" {
   type        = string
   default     = "ap-east-1"
   description = "Destination region"
+}
+
+variable "kms_source_logging_arn" {
+  type        = string
+  description = "Kms Source logging arn"
+}
+
+variable "kms_destination_logging_arn" {
+  type        = string
+  description = "Kms destination logging arn"
+}
+
+variable "s3_source_log_bucket_creation_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable s3 log bucket creation at the source region"
+}
+
+variable "enable_logbucket_versioning" {
+  type        = string
+  default     = "Enabled"
+  description = "Enable versioning"
+}
+
+variable "source_logbucket_enable_backup" {
+  type        = bool
+  default     = false
+  description = "Enable backup"
+}
+
+variable "destination_logbucket_enable_backup" {
+  type        = bool
+  default     = false
+  description = "Enable backup"
+}
+
+variable "s3_destination_log_bucket_creation_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable s3 log bucket creation at the destination region"
+}
+
+variable "mrap_creation_enabled" {
+  type        = bool
+  default     = true
+  description = "Enable mrap creation"
 }
