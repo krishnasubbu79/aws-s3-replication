@@ -95,4 +95,8 @@ module "create_mrap" {
   source_region              = var.source_region
   destination_region         = var.destination_region
   environment                = var.environment
+
+  # TODO - Add s3 tags
+  # TODO - Test s3 lifecycle rules via variables
+  # TODO - Test s3 MRAP policy
 }

@@ -25,20 +25,18 @@ variable "restrict_public_buckets" {
 
 variable "s3_source_bucket_creation_enabled" {
   type        = bool
-  default     = true
   description = "Enable s3 bucket creation at the source region"
 }
 
 variable "s3_destination_bucket_creation_enabled" {
   type        = bool
-  default     = true
   description = "Enable s3 bucket creation at the destination region"
 }
 
 variable "environment" {
   type        = string
   default     = "development"
-  description = "Environment"
+  description = "Environment of deployment"
 }
 
 variable "app_name" {
@@ -49,7 +47,7 @@ variable "app_name" {
 
 variable "bucket_name" {
   type        = string
-  description = "Bucket name"
+  description = "Name of the application bucket"
 }
 
 variable "source_region" {
@@ -67,34 +65,34 @@ variable "s3_bucket_replication_enabled" {
 variable "source_enable_backup" {
   type        = bool
   default     = true
-  description = "Enable backup"
+  description = "Enable backup of s3 bucket - defaults to true for source region"
 }
 
 variable "destination_enable_backup" {
   type        = bool
   default     = false
-  description = "Enable backup"
+  description = "Enable backup of s3 bucket - defaults to false for destination region"
 }
 
 variable "enable_versioning" {
   type        = string
   default     = "Enabled"
-  description = "Enable versioning"
+  description = "Enable versioning for s3 bucket - defaults to Enabled"
 }
 
 variable "source_log_bucket" {
   type        = string
-  description = "Source log bucket"
+  description = "Source log bucket - Typically created via the baseline module"
 }
 
 variable "destination_log_bucket" {
   type        = string
-  description = "Destination log bucket"
+  description = "Destination log bucket - Typically created via the baseline module"
 }
 
 variable "s3_lifecycle_rules" {
   type        = list(any)
-  description = "S3 lifecycle rules"
+  description = "S3 lifecycle rules - Typically list of maps"
 }
 
 variable "source_kms_key_arn" {
@@ -111,46 +109,6 @@ variable "destination_region" {
   type        = string
   default     = "ap-east-1"
   description = "Destination region"
-}
-
-variable "kms_source_logging_arn" {
-  type        = string
-  description = "Kms Source logging arn"
-}
-
-variable "kms_destination_logging_arn" {
-  type        = string
-  description = "Kms destination logging arn"
-}
-
-variable "s3_source_log_bucket_creation_enabled" {
-  type        = bool
-  default     = true
-  description = "Enable s3 log bucket creation at the source region"
-}
-
-variable "enable_logbucket_versioning" {
-  type        = string
-  default     = "Enabled"
-  description = "Enable versioning"
-}
-
-variable "source_logbucket_enable_backup" {
-  type        = bool
-  default     = false
-  description = "Enable backup"
-}
-
-variable "destination_logbucket_enable_backup" {
-  type        = bool
-  default     = false
-  description = "Enable backup"
-}
-
-variable "s3_destination_log_bucket_creation_enabled" {
-  type        = bool
-  default     = false
-  description = "Enable s3 log bucket creation at the destination region"
 }
 
 variable "mrap_creation_enabled" {

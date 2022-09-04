@@ -205,6 +205,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_lifecycle_configuration" {
   }
 }
 
+// Enable metrics for s3 buckets
 resource "aws_s3_bucket_metric" "s3_metrics" {
   count  = local.bucket_creation_enabled
   bucket = aws_s3_bucket.bucket[count.index].id

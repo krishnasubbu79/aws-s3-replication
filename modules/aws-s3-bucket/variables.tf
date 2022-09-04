@@ -56,7 +56,8 @@ variable "tags" {
 
 variable "enable_backup" {
   type    = bool
-  default = true
+  default = false
+  description = "Enable or disable S3 bucket backup, defaults to true for source bucket"
 }
 
 variable "versioning_status" {
@@ -67,7 +68,7 @@ variable "versioning_status" {
 
 variable "log_bucket" {
   type        = string
-  description = "The name of the S3 bucket to store logs"
+  description = "The name of the S3 bucket ( ARN ) to store logs"
 }
 
 variable "kms_key_arn" {
